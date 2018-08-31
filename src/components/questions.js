@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import ReactWizard from "react-bootstrap-wizard";
@@ -20,8 +19,8 @@ class FirstStep extends React.Component {
         'class5': 'col ml-2 btn btn-outline-primary'//class define el style del button, en el state sera modificado
       };
     }
-   
-    state = {
+    
+    state = { 
         status1: ""
     }
 
@@ -36,33 +35,33 @@ class FirstStep extends React.Component {
             case 'Frutal':
                 this.setState({
                     class1: 'col ml-2 btn btn-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
-                });
+                }); 
                 break;
             case 'Cafe':
                 this.setState({
                     class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
-                });
+                }); 
                 break;
             case 'Levadura':
                 this.setState({
                     class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
-                });
+                }); 
                 break;
             case 'Caramelo':
                 this.setState({
                     class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-primary',class5: 'col ml-2 btn btn-outline-primary',
-                });
+                }); 
                 break;
             case 'Toronaja':
                 this.setState({
                     class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-primary',
-                });
+                }); 
                 break;
         }
 
         switch (event.target.name) {
             case 'q1':
-                this.setState({status1: true, valor1:event.target.value});//Esto es enviado el state Padre, status para isValidate(), valor1=>r1
+                this.setState({status1: true, valor1:event.target.value});//Esto es enviado el state Padre, status para isValidate(), valor1=>r1 
                 break;
         }
     }
@@ -78,7 +77,7 @@ class FirstStep extends React.Component {
             <button className={this.state.class3} onClick={this.onClick} name="q1" id="r3" value="Levadura">Levadura</button>
             <button className={this.state.class4} onClick={this.onClick} name="q1" id="r3" value="Caramelo">Caramelo</button>
             <button className={this.state.class5} onClick={this.onClick} name="q1" id="r3" value="Toronaja">Toronaja</button>
-           
+            
         </div>
       );
     }
@@ -96,7 +95,7 @@ class FirstStep extends React.Component {
       };
     }
 
-    state = {
+    state = { 
         status2: ""
     }
 
@@ -112,17 +111,17 @@ class FirstStep extends React.Component {
             case 'Clara':
                 this.setState({
                     class1: 'col ml-2 btn btn-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
-                });
+                }); 
                 break;
             case 'Obscura':
                 this.setState({
                     class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
-                });
+                }); 
                 break;
             case 'Mixto':
                 this.setState({
                     class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
-                });
+                }); 
                 break;
         }
 
@@ -142,7 +141,7 @@ class FirstStep extends React.Component {
             <button className={this.state.class1} onClick={this.onClick} name="q2" id="r1" value="Clara">Clara</button>
             <button className={this.state.class2} onClick={this.onClick} name="q2" id="r2" value="Obscura">Obscura</button>
             <button className={this.state.class3} onClick={this.onClick} name="q2" id="r3" value="Mixto">Mixto</button>
-           
+            
         </div>
       );
     }
@@ -156,8 +155,8 @@ class FirstStep extends React.Component {
         'class': 'col ml-2 btn btn-outline-primary'
       };
     }
-   
-    state = {
+    
+    state = { 
         status3: ""
     }
 
@@ -186,7 +185,7 @@ class FirstStep extends React.Component {
             <button className={this.state.class} onClick={this.onClick} name="q3" id="r1" value="1">R1</button>
             <button className={this.state.class} onClick={this.onClick} name="q3" id="r2" value="2">R2</button>
             <button className={this.state.class} onClick={this.onClick} name="q3" id="r3" value="3">R3</button>
-           
+            
         </div>
       );
     }
@@ -201,7 +200,7 @@ class FirstStep extends React.Component {
       };
     }
 
-    state = {
+    state = { 
         status4: ""
     }
 
@@ -210,7 +209,7 @@ class FirstStep extends React.Component {
         console.log(resp4);
         return resp4;
     }
-   
+    
     onClick = (event) => {
         switch (event.target.name) {
             case 'q4':
@@ -230,7 +229,7 @@ class FirstStep extends React.Component {
             <button className={this.state.class} onClick={this.onClick} name="q4" id="r1" value="1">R1</button>
             <button className={this.state.class} onClick={this.onClick} name="q4" id="r2" value="2">R2</button>
             <button className={this.state.class} onClick={this.onClick} name="q4" id="r3" value="3">R3</button>
-           
+            
         </div>
       );
     }
@@ -245,7 +244,7 @@ class FirstStep extends React.Component {
         'class': 'col ml-2 btn btn-outline-primary'
       };
     }
-   
+    
     onClick = (event) => {
         switch (event.target.name) {
             case 'q5':
@@ -265,7 +264,7 @@ class FirstStep extends React.Component {
             <button className={this.state.class} onClick={this.onClick} name="q5" id="r1" value="1">R1</button>
             <button className={this.state.class} onClick={this.onClick} name="q5" id="r2" value="2">R2</button>
             <button className={this.state.class} onClick={this.onClick} name="q5" id="r3" value="3">R3</button>
-           
+            
         </div>
       );
     }
@@ -273,48 +272,45 @@ class FirstStep extends React.Component {
   }
 
 var steps = [
-   
+    
     { stepName: "1", component: FirstStep },
     { stepName: "2", component: SecondStep },
     { stepName: "3", component: ThirdStep },
     { stepName: "4", component: FourStep },
     { stepName: "5", component: FiveStep }
 ];
- 
+  
 
-class Questions extends Component {
+class Questions extends Component { 
 
-    constructor() {
-        super();
-        this.state = { sabor: '' };
-    }
+    state = {
+        chelas: [],
+        vacio: ''
+    };
 
-    finishButtonClick(allStates) {
-        //console.log(allStates);
-        const json = {
-            sabor: allStates.valor1,
-            color: allStates.valor2
-        }
-       
-        const URL = 'https://beermatch-backend.herokuapp.com/api/v1/cervezas?sabor='+ allStates.valor1 +'&color='+ allStates.valor2;
+    finishButtonClick = (allStates) => {
+
+        URL = 'https://beermatch-backend.herokuapp.com/api/v1/cervezas?sabor='+ allStates.valor1 +'&color='+ allStates.valor2;
         axios
             .get(URL)
             .then( respuesta => {
-                /* console.log(respuesta.data) */
                 this.setState({
-                    sabor: 'Obscura'
+                    chelas: respuesta.data,
+                    vacio: 'ok'
                 })
             })
             .catch(error => {
-               
+                this.setState({
+                    chelas: '',
+                    vacio: ''
+                })
             });
-
     }
-   
+    
 
-    render() {
-        const { sabor } = this.state;
-        return (
+    render() { 
+        /* const { sabor } = this.state; */
+        return ( 
             <div style={{ marginTop: "15px" }}>
                 <Row>
                     <Col xs={12} md={6} className="mr-auto ml-auto">
@@ -322,7 +318,7 @@ class Questions extends Component {
                         steps={steps}
                         navSteps
                         title="MATCHBEER"
-                        description="**Descripcion texto o imagen"
+                        description="Busca tu chela ideal"
                         headerTextCenter
                         validate
                         color="blue"
@@ -331,20 +327,33 @@ class Questions extends Component {
                     </Col>
                     <Col xs={12} md={6} className="mr-auto ml-auto">
                         <Container>
-                            {
-                                sabor ?
-                                <Chela sabor={sabor} /> :
+                            {   
+                                this.state.vacio ?
+                                    this.state.chelas.map( chela => {
+                                        return <Chela
+                                            key={chela._id}
+                                            nombre={chela.nombre}
+                                            estilo={chela.estilo}
+                                            cerveceria={chela.cerveceria}
+                                            imagen={chela.imagen}
+                                            sabor={chela.sabor}
+                                            color={chela.color}
+                                            precio={chela.precio}
+                                        />
+                                    })
+                                :
                                 <div className="card">
-                                    <i>Sugerencia</i>
-                                    <img className="card-img-top" src="https://cdn1.yopongoelhielo.com/260-thickbox_default/becks.jpg" width="50%"/>
+                                    <h2>Sugerencia del Dia</h2>
+                                    <img className="img-rounded" src="http://dcervezas.com/199-large_default/cerveza-belga-lindemans-kriek.jpg"/>
                                     <div className="card-body">
-                                        <h5 className="card-title">Card title</h5>
-                                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                                        <h2><b>$60</b></h2>
+                                        <h5 className="card-title">Lambic - Lindemans</h5>
+                                        <p className="card-text"><i>Frutal | Mixto</i></p>
+                                        <a href="#" className="btn btn-primary">Dame mi chela</a>
                                     </div>
                                 </div>
                             }
-                           
+                            
                         </Container>
                     </Col>
                 </Row>
