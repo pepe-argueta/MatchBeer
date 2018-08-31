@@ -1,35 +1,68 @@
+
 import React, { Component } from 'react';
 import ReactDOM from "react-dom";
 import ReactWizard from "react-bootstrap-wizard";
 import { Container, Row, Col } from "reactstrap";
 import "react-bootstrap-wizard/dist/react-wizard.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios';
+import Chela from './detailChela';
 
 class FirstStep extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
         firstStep: "PRIMERA PREGUNTA",
-        'class': 'col ml-2 btn btn-outline-primary'
+        'class1': 'col ml-2 btn btn-outline-primary',//class define el style del button, en el state sera modificado
+        'class2': 'col ml-2 btn btn-outline-primary',//class define el style del button, en el state sera modificado
+        'class3': 'col ml-2 btn btn-outline-primary',//class define el style del button, en el state sera modificado
+        'class4': 'col ml-2 btn btn-outline-primary',//class define el style del button, en el state sera modificado
+        'class5': 'col ml-2 btn btn-outline-primary'//class define el style del button, en el state sera modificado
       };
     }
-    
-    state = { 
+   
+    state = {
         status1: ""
     }
 
     isValidated() {
         var resp1 = (this.state.status1 == true) ? true : false ;
-        console.log(resp1);
-        return resp1;
+        return resp1;//true next step
     }
 
     onClick = (event) => {
+
+        switch (event.target.value) {//set class
+            case 'Frutal':
+                this.setState({
+                    class1: 'col ml-2 btn btn-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
+                });
+                break;
+            case 'Cafe':
+                this.setState({
+                    class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
+                });
+                break;
+            case 'Levadura':
+                this.setState({
+                    class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
+                });
+                break;
+            case 'Caramelo':
+                this.setState({
+                    class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-primary',class5: 'col ml-2 btn btn-outline-primary',
+                });
+                break;
+            case 'Toronaja':
+                this.setState({
+                    class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-primary',
+                });
+                break;
+        }
+
         switch (event.target.name) {
             case 'q1':
-                this.setState({status1: true, valor1:event.target.id});
-                console.log(event.target.name);
-                console.log(event.target.value);
+                this.setState({status1: true, valor1:event.target.value});//Esto es enviado el state Padre, status para isValidate(), valor1=>r1
                 break;
         }
     }
@@ -38,12 +71,14 @@ class FirstStep extends React.Component {
       return (
         <div className="row">
             <div className="col-xs-12 col-md-12">
-                <h1>Pregunta 1</h1>
+                <h1>Que sabor prefieres?</h1>
             </div>
-            <button type="button" className={this.state.class} onClick={this.onClick} name="q1" id="r1" value="1">R1</button>
-            <button type="button" className={this.state.class} onClick={this.onClick} name="q1" id="r2" value="2">R2</button>
-            <button type="button" className={this.state.class} onClick={this.onClick} name="q1" id="r3" value="3">R3</button>
-            
+            <button className={this.state.class1} onClick={this.onClick} name="q1" id="r1" value="Frutal">Frutal</button>
+            <button className={this.state.class2} onClick={this.onClick} name="q1" id="r2" value="Cafe">Cafe</button>
+            <button className={this.state.class3} onClick={this.onClick} name="q1" id="r3" value="Levadura">Levadura</button>
+            <button className={this.state.class4} onClick={this.onClick} name="q1" id="r3" value="Caramelo">Caramelo</button>
+            <button className={this.state.class5} onClick={this.onClick} name="q1" id="r3" value="Toronaja">Toronaja</button>
+           
         </div>
       );
     }
@@ -54,11 +89,14 @@ class FirstStep extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        secondStep: "SEGUNDA PREGUNTA"
+        secondStep: "SEGUNDA PREGUNTA",
+        'class1': 'col ml-2 btn btn-outline-primary',//class define el style del button, en el state sera modificado
+        'class2': 'col ml-2 btn btn-outline-primary',//class define el style del button, en el state sera modificado
+        'class3': 'col ml-2 btn btn-outline-primary',//class define el style del button, en el state sera modificado
       };
     }
 
-    state = { 
+    state = {
         status2: ""
     }
 
@@ -69,11 +107,28 @@ class FirstStep extends React.Component {
     }
 
     onClick = (event) => {
+
+        switch (event.target.value) {//set class
+            case 'Clara':
+                this.setState({
+                    class1: 'col ml-2 btn btn-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
+                });
+                break;
+            case 'Obscura':
+                this.setState({
+                    class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-primary',class3: 'col ml-2 btn btn-outline-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
+                });
+                break;
+            case 'Mixto':
+                this.setState({
+                    class1: 'col ml-2 btn btn-outline-primary',class2: 'col ml-2 btn btn-outline-primary',class3: 'col ml-2 btn btn-primary',class4: 'col ml-2 btn btn-outline-primary',class5: 'col ml-2 btn btn-outline-primary',
+                });
+                break;
+        }
+
         switch (event.target.name) {
             case 'q2':
-                this.setState({status2: true, valor2:event.target.id});
-                console.log(event.target.name);
-                console.log(event.target.value);
+                this.setState({status2: true, valor2:event.target.value});
                 break;
         }
     }
@@ -82,12 +137,12 @@ class FirstStep extends React.Component {
       return (
         <div className="row">
             <div className="col-xs-12 col-md-12">
-                <h1>Pregunta 2</h1>
+                <h1>Elige un Color?</h1>
             </div>
-            <button type="button" classNameclassName="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q2" id="r1" value="1">R1</button>
-            <button type="button" classNameclassName="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q2" id="r2" value="2">R2</button>
-            <button type="button" classNameclassName="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q2" id="r3" value="3">R3</button>
-            
+            <button className={this.state.class1} onClick={this.onClick} name="q2" id="r1" value="Clara">Clara</button>
+            <button className={this.state.class2} onClick={this.onClick} name="q2" id="r2" value="Obscura">Obscura</button>
+            <button className={this.state.class3} onClick={this.onClick} name="q2" id="r3" value="Mixto">Mixto</button>
+           
         </div>
       );
     }
@@ -97,11 +152,12 @@ class FirstStep extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        thirdStep: "Segunda Pregunta"
+        thirdStep: "TERCERA PREGUNTA",
+        'class': 'col ml-2 btn btn-outline-primary'
       };
     }
-    
-    state = { 
+   
+    state = {
         status3: ""
     }
 
@@ -114,7 +170,7 @@ class FirstStep extends React.Component {
     onClick = (event) => {
         switch (event.target.name) {
             case 'q3':
-                this.setState({status3: true, valor3:event.target.id});
+                this.setState({status3: true, valor3:event.target.value});
                 console.log(event.target.name);
                 console.log(event.target.value);
                 break;
@@ -127,10 +183,10 @@ class FirstStep extends React.Component {
             <div className="col-xs-12 col-md-12">
                 <h1>Pregunta 3</h1>
             </div>
-            <button type="button" className="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q3" id="r1" value="1">R1</button>
-            <button type="button" className="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q3" id="r2" value="2">R2</button>
-            <button type="button" className="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q3" id="r3" value="3">R3</button>
-            
+            <button className={this.state.class} onClick={this.onClick} name="q3" id="r1" value="1">R1</button>
+            <button className={this.state.class} onClick={this.onClick} name="q3" id="r2" value="2">R2</button>
+            <button className={this.state.class} onClick={this.onClick} name="q3" id="r3" value="3">R3</button>
+           
         </div>
       );
     }
@@ -140,11 +196,12 @@ class FirstStep extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        thirdStep: "Tercera Pregunta"
+        fourStep: "CUARTA PREGFUNTA",
+        'class': 'col ml-2 btn btn-outline-primary'
       };
     }
 
-    state = { 
+    state = {
         status4: ""
     }
 
@@ -153,11 +210,11 @@ class FirstStep extends React.Component {
         console.log(resp4);
         return resp4;
     }
-    
+   
     onClick = (event) => {
         switch (event.target.name) {
             case 'q4':
-                this.setState({status4: true, valor4:event.target.id});
+                this.setState({status4: true, valor4:event.target.value});
                 console.log(event.target.name);
                 console.log(event.target.value);
                 break;
@@ -170,10 +227,10 @@ class FirstStep extends React.Component {
             <div className="col-xs-12 col-md-12">
                 <h1>Pregunta 4</h1>
             </div>
-            <button type="button" className="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q4" id="r1" value="1">R1</button>
-            <button type="button" className="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q4" id="r2" value="2">R2</button>
-            <button type="button" className="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q4" id="r3" value="3">R3</button>
-            
+            <button className={this.state.class} onClick={this.onClick} name="q4" id="r1" value="1">R1</button>
+            <button className={this.state.class} onClick={this.onClick} name="q4" id="r2" value="2">R2</button>
+            <button className={this.state.class} onClick={this.onClick} name="q4" id="r3" value="3">R3</button>
+           
         </div>
       );
     }
@@ -184,14 +241,15 @@ class FirstStep extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        thirdStep: "Cuarta Pregunta"
+        fiveStep: "QUINTA PREGUNTA",
+        'class': 'col ml-2 btn btn-outline-primary'
       };
     }
-    
+   
     onClick = (event) => {
         switch (event.target.name) {
             case 'q5':
-                this.setState({status5: true, valor5:event.target.id});
+                this.setState({status5: true, valor5:event.target.value});
                 console.log(event.target.name);
                 console.log(event.target.value);
                 break;
@@ -204,10 +262,10 @@ class FirstStep extends React.Component {
             <div className="col-xs-12 col-md-12">
                 <h1>Pregunta 5</h1>
             </div>
-            <button type="button" className="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q5" id="r1" value="1">R1</button>
-            <button type="button" className="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q5" id="r2" value="2">R2</button>
-            <button type="button" className="col ml-3 btn btn-outline-primary" onClick={this.onClick} name="q5" id="r3" value="3">R3</button>
-            
+            <button className={this.state.class} onClick={this.onClick} name="q5" id="r1" value="1">R1</button>
+            <button className={this.state.class} onClick={this.onClick} name="q5" id="r2" value="2">R2</button>
+            <button className={this.state.class} onClick={this.onClick} name="q5" id="r3" value="3">R3</button>
+           
         </div>
       );
     }
@@ -215,27 +273,51 @@ class FirstStep extends React.Component {
   }
 
 var steps = [
-    
+   
     { stepName: "1", component: FirstStep },
     { stepName: "2", component: SecondStep },
     { stepName: "3", component: ThirdStep },
     { stepName: "4", component: FourStep },
     { stepName: "5", component: FiveStep }
 ];
-  
+ 
 
 class Questions extends Component {
-    
-    finishButtonClick(allStates) {
-        console.log(allStates);
-    }
-    
 
-    render() { 
-        return ( 
-            <Container style={{ marginTop: "15px" }}>
+    constructor() {
+        super();
+        this.state = { sabor: '' };
+    }
+
+    finishButtonClick(allStates) {
+        //console.log(allStates);
+        const json = {
+            sabor: allStates.valor1,
+            color: allStates.valor2
+        }
+       
+        const URL = 'https://beermatch-backend.herokuapp.com/api/v1/cervezas?sabor='+ allStates.valor1 +'&color='+ allStates.valor2;
+        axios
+            .get(URL)
+            .then( respuesta => {
+                /* console.log(respuesta.data) */
+                this.setState({
+                    sabor: 'Obscura'
+                })
+            })
+            .catch(error => {
+               
+            });
+
+    }
+   
+
+    render() {
+        const { sabor } = this.state;
+        return (
+            <div style={{ marginTop: "15px" }}>
                 <Row>
-                    <Col xs={12} md={12} className="mr-auto ml-auto">
+                    <Col xs={12} md={6} className="mr-auto ml-auto">
                         <ReactWizard
                         steps={steps}
                         navSteps
@@ -247,8 +329,26 @@ class Questions extends Component {
                         finishButtonClick={this.finishButtonClick}
                         />
                     </Col>
+                    <Col xs={12} md={6} className="mr-auto ml-auto">
+                        <Container>
+                            {
+                                sabor ?
+                                <Chela sabor={sabor} /> :
+                                <div className="card">
+                                    <i>Sugerencia</i>
+                                    <img className="card-img-top" src="https://cdn1.yopongoelhielo.com/260-thickbox_default/becks.jpg" width="50%"/>
+                                    <div className="card-body">
+                                        <h5 className="card-title">Card title</h5>
+                                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                                    </div>
+                                </div>
+                            }
+                           
+                        </Container>
+                    </Col>
                 </Row>
-            </Container>
+            </div>
          );
     }
 }
