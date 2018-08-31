@@ -23,8 +23,8 @@ class DetailChela extends Component {
         return ( 
             <div className="card">
                 <h2>Tu chela ideal!!!</h2>
-                <img className="img-rounded" src={this.state.imagen}/>
                 <div className="card-body">
+                    <img className="img-thumbnail" style={{width: '290px', border: '0px'}} src={this.state.imagen}/>
                     <h2><b>${this.state.precio}</b></h2>
                     <h5 className="card-title">{this.state.nombre} - {this.state.cerveceria}</h5>
                     <p className="card-text"><i>{this.state.sabor} | {this.state.color}</i></p>
