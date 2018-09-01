@@ -385,7 +385,7 @@ class Questions extends Component {
         const onError = (err) => {
             console.log("Error!", err);			 
         }		            
-        let currency = 'USD';
+        let currency = 'MXN';
         let total = 60;
         
         const client = {

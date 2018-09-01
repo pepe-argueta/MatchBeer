@@ -35,7 +35,7 @@ class DetailChela extends Component {
         // => sometimes it may take about 0.5 second for everything to get set, or for the button to appear			 
         }		    
                 
-        let currency = 'USD'; // or you can set this value from your props or state   
+        let currency = 'MXN'; // or you can set this value from your props or state   
         let total = 1; 
         //
         return ( 
