@@ -10,9 +10,9 @@ class PaypalButton extends React.Component {
     window.ReactDOM = ReactDOM;
     this.state = {
       showButton: false,
-      env: 'production', // Or 'sandbox'
+      env: 'sandbox', // Or 'sandbox'
       client: {
-        sandbox:    'access_token$production$cv3q8gmvrw94kj54$741342d3fdca4d8a6c90aa2f26c56bff', // sandbox client ID
+        sandbox:    'AZDxjDScFpQtjWTOUtWKbyN_bDt4OgqaF4eYXlewfBP4-8aqX3PiV8e1GWU6liB2CUXlkA59kJXE7M6R', // sandbox client ID
         production: 'access_token$production$cv3q8gmvrw94kj54$741342d3fdca4d8a6c90aa2f26c56bff' // production client ID
       },
       commit: true, // Show a 'Pay Now' button
