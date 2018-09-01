@@ -13,7 +13,7 @@ class PaypalButton extends React.Component {
       env: 'production', // Or 'sandbox'
       client: {
         sandbox:    'access_token$production$cv3q8gmvrw94kj54$741342d3fdca4d8a6c90aa2f26c56bff', // sandbox client ID
-        production: 'cv3q8gmvrw94kj54$741342d3fdca4d8a6c90aa2f26c56bff' // production client ID
+        production: 'access_token$production$cv3q8gmvrw94kj54$741342d3fdca4d8a6c90aa2f26c56bff' // production client ID
       },
       commit: true, // Show a 'Pay Now' button
     };

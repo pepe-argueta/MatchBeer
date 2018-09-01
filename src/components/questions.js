@@ -387,6 +387,11 @@ class Questions extends Component {
         }		            
         let currency = 'USD';
         let total = 60;
+        
+        const client = {
+            sandbox:    'cv3q8gmvrw94kj54$741342d3fdca4d8a6c90aa2f26c56bff',
+            production: 'cv3q8gmvrw94kj54$741342d3fdca4d8a6c90aa2f26c56bff',
+          }
 
         return ( 
             <div style={{ marginTop: "15px" }}>
@@ -433,6 +438,7 @@ class Questions extends Component {
                                             onError={onError}
                                             onSuccess={onSuccess}
                                             onCancel={onCancel}
+                                            client={client}
                                         />
                                     </div>
                                 </div>
