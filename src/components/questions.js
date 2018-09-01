@@ -6,6 +6,7 @@ import "react-bootstrap-wizard/dist/react-wizard.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import Chela from './detailChela';
+import PaypalExpressBtn from './PayPalExpressCheckOut';
 
 class FirstStep extends React.Component {
     constructor(props) {
@@ -375,7 +376,18 @@ class Questions extends Component {
     
 
     render() { 
-        /* const { sabor } = this.state; */
+        const onSuccess = (payment) => {
+            console.log("Pago realizado!", payment);
+        }	        
+        const onCancel = (data) => {
+            console.log('Pago Cancelado', data);
+        }	        
+        const onError = (err) => {
+            console.log("Error!", err);			 
+        }		            
+        let currency = 'USD';
+        let total = 60;
+
         return ( 
             <div style={{ marginTop: "15px" }}>
                 <Row>
@@ -415,7 +427,13 @@ class Questions extends Component {
                                         <h2><b>$60</b></h2>
                                         <h5 className="card-title">Lambic - Lindemans</h5>
                                         <p className="card-text"><i>Frutal | Mixto</i></p>
-                                        <a href="#" className="btn btn-primary">Dame mi chela</a>
+                                        <PaypalExpressBtn 
+                                            currency={currency}
+                                            total={total}
+                                            onError={onError}
+                                            onSuccess={onSuccess}
+                                            onCancel={onCancel}
+                                        />
                                     </div>
                                 </div>
                             }
